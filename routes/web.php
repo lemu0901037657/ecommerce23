@@ -1,8 +1,9 @@
 <?php
-
+use App\Models\catagory;
+use App\Models\products;
 use Illuminate\Support\Facades\Route;
-use App\httpcontroller\productcontroller;
-
+use App\Http\controllers\productsController;
+use App\Http\controllers\catagoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,8 +16,21 @@ use App\httpcontroller\productcontroller;
 */
 
 Route::get('/', function () {
-
     return view('welcome');
 });
-Route::get('product.register',[productcontroller,'register']);
-Route::post('product.register',[productcontroller,' store']);
+Route::get('/catagory/register',[catagoryController::class,'register'])->name('catagory/register');
+Route::post('/catagory/register',[catagoryController::class,'store']);
+Route::get('/catagory/list', [catagoryController::class, 'get_all'])->name('catagory/list');
+Route::get('/catagory/edit/{id}', [catagoryController::class, 'edit']);
+Route::post('/catagory/update',[catagoryController::class,'update'])->name('catagory/update')->name('catagory/update');
+Route::get('/catagory/delete/{id}', [catagoryController::class, 'delete']);
+Route::get('/catagory/search/{id}', [catagoryController::class, 'search'])->name('catagory/search');
+Route::get('/products/list', [productsController::class, 'get_all'])->name('products/list');
+Route::get('/products/edit/{id}', [productsController::class, 'edit']);
+Route::post('/products/update',[productsController::class,'update'])->name('products/update');
+Route::get('/products/delete/{id}', [productsController::class, 'delete']);
+Route::get('/products/search/{id}', [productsController::class, 'search'])->name('products/search');
+Route::get('/products/register',[productsController::class,'register'])->name('products/register');
+Route::post('/products/register',[productsController::class,'store']);
+
+ 
