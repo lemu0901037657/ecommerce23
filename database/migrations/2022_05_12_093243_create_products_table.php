@@ -20,7 +20,12 @@ return new class extends Migration
             $table->String('price');
             $table->string('quantity');
             $table->timestamps();
-        });
+            $table->unsignedBigInteger('catagory_id')->foreign('catagory_id')->reference('id')->on('catagory') ->onDelet('cascade');
+            
+                
+                
+                
+              });
     }
 
     /**

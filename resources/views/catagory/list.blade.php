@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="container pb-2">
- <a class="btn btnsuccess" href="{{ route('catagory/register') }}" role="button"> {{ __('New catagory') }}
+ <a class="btn btnsuccess" href="{{ route('catagory/register') }}" role="button"> {{ ('New catagory') }}
 </a>
 </div>
 <div class="container">
@@ -9,7 +9,7 @@
  <div class="col-md-8">
  <div class="card">
  <div class="card-header">
- {{ __('catagory List') }}
+ {{ ('catagory List') }}
  </div>
  <div class="card-body">
  <table class="table table-striped table-bordered ">
